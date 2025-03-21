@@ -1,18 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-    //array showing task form, task  description,new task ,submit button
-    const taskForm = [
-        { id: "create-task-form", type: "POST" },
-        { id: "new-task-description", type: "Task description" },
-        { id: "new-task", type: "button" },
-        { id: "tasks", type: "ul" },
-
-        }
-    )
-     
+document.addEventListener( `DOMContentLoaded`,() => {
+    document.querySelector(`form`)
+    form.addEventListener(`submit`,(e) => {
+        event.preventDefault()
+        buildToDO(e.target.new_todo.value)
+        form.reset()
+        
+    })
+   
     
-    function addSubmitButton() {
-        const submitButton = document.createElement("");
-        submitButton.setAttribute("POST", "submit");
-        submitButton.setAttribute("value", "Create New Task");
-        taskForm.appendChild(submitButton);
+
+})
+ function buildToDO(todo) {
+    let p = document(`p`)
+    let button = document.createElement(`button`)
+    button.addEventListener(`click`,handleDelete)
+     button.textContent = `X`
+    p.textContent =` ${todo}`
+    p.appendChild(button)
+    console.log(p)
+    document.querySelector(`main-content`).appendChild(p)
+ }
+
+    function handleDelete(e) {
+        event.target.parentNode.remove()
     }
+
+ 
