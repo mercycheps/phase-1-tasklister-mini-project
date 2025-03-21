@@ -1,7 +1,7 @@
 document.addEventListener( `DOMContentLoaded`,() => {
     document.querySelector(`form`)
     form.addEventListener(`submit`,(e) => {
-        event.preventDefault()
+        Event.preventDefault()
         buildToDO(e.target.new_todo.value)
         form.reset()
         
@@ -21,8 +21,8 @@ document.addEventListener( `DOMContentLoaded`,() => {
     document.querySelector(`main-content`).appendChild(p)
  }
 
-    function handleDelete(e) {
-        event.target.parentNode.remove()
+    function handleDelete(Event) {
+        Event.target.parentNode.remove()
     }
 
  
