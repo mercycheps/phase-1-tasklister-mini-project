@@ -1,25 +1,28 @@
-document.addEventListener( `DOMContentLoaded`,() => {
-  const form = document.querySelector(`form`)
-  form.addEventListener(`submit`,(event) => {
+
+  const form = document.querySelector(`#create-task-form`)
+  let formInput = document.querySelector('#new-task-description')
+  let ul = document.getElementById(`tasks`)
+
+  form.addEventListener(`submit`,function(event){
     event.preventDefault()
-      console.log(event)
-      buildToDO(event.target["new-task-description"].value)
-      form.reset()
+      console.log(formInput.value.trim())
+      buildToDO(formInput.value.trim())
+      console.log(ul.textContent);
+      
+      
       
   })
  
-  
-
-})
 function buildToDO(todo) {
-  let ul = document.getElementById(`tasks`)
+  const li = document.createElement("li");
+  li.textContent = `${todo} `
+  ul.appendChild(li)
+
+   //Adding a remove button
   let button = document.createElement(`button`)
-  button.addEventListener(`click`,handleDelete)
    button.textContent = `X`
-  const li = document.createElement("li")
-  li.textContent = todo
-  li.appendChild(button)
-   ul.appendChild(li)
+   button.addEventListener(`click`,handleDelete)
+   li.appendChild(button)
 }
 
   function handleDelete(e) {
