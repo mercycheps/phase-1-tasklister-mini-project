@@ -26,6 +26,7 @@ function buildToDO(todo) {
 }
 
   function handleDelete(e) {
+    // handle delete
       e.target.parentNode.remove()
   }
 
